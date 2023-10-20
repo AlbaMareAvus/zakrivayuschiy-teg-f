@@ -78,12 +78,49 @@
 
 .theme-menu__button:disabled {
   opacity: .6;
+  transition: opacity .3s ease;
+  pointer-events: none;
 }
 
 .theme-menu__button:disabled::before {
   content: '▶';
   position: absolute;
+  opacity: .6;
+  animation: arrow-move .5s ease-in-out infinite alternate;
   inset-inline-start: -12px;
+}
+
+.theme-menu__button::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  display: block;
+  height: 2px;
+  background-color: currentColor;
+  inline-size: 100%;
+  scale: 0;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+}
+
+.theme-menu__button:focus-visible {
+  outline: none;
+  opacity: .6;
+  transition: opacity .3s ease;
+}
+
+.theme-menu__button:focus-visible::after {
+  transition: scale .3s ease;
+  transform-origin: left;
+  scale: 1;
+}
+
+.theme-menu__button:hover {
+  opacity: .6;
+  transition: opacity .3s ease;
 }
 
 .content {
@@ -152,14 +189,20 @@
 }
 
 .card__icon-button {
-  cursor: pointer;
+  display: flex;
+  place-items: center;
+  border: none;
+  padding: 0;
+  background-color: transparent;
 }
 
 .card__like-button {
+  position: relative;
   border: none;
   padding-inline: 17px;
   padding-block: 9px;
   outline: 2px solid currentColor;
+  outline-offset: -2px;
   font-family: var(--accent-font-family);
   font-size: 14px;
   line-height: .9;
@@ -175,6 +218,7 @@
 }
 
 .button {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -183,18 +227,50 @@
   border: none;
   padding: 15px 20px;
   outline: 2px solid currentColor;
+  outline-offset: -2px;
   background-color: var(--background-color);
   cursor: pointer;
   inline-size: 310px;
 }
 
+.button:focus-visible,
+.card__like-button:focus-visible {
+  box-shadow: 2px 2px 0px 0px var(--accent-color);
+  transition: box-shadow .3s ease;
+}
+
+.button::after,
+.card__like-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--accent-color);
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.button:hover::after,
+.card__like-button:hover::after {
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
 .button__floppy-icon {
+  z-index: 1;
+  color: var(--button-text-color);
   inline-size: 28px;
   block-size: 28px;
+  mix-blend-mode: difference;
 }
 
 .button__text {
+  position: relative;
+  z-index: 1;
+  color: var(--button-text-color);
   font-family: var(--accent-font-family);
   font-size: 14px;
   line-height: .9;
+  mix-blend-mode: difference;
 }
