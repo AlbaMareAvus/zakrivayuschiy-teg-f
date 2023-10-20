@@ -7,7 +7,7 @@
   background-size: cover;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-variation-settings: 'wgth' var(--main-font-weight, 400);
+  font-variation-settings: 'wght' var(--main-font-weight, 400);
 }
 
 .container {
