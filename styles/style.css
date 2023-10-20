@@ -44,11 +44,10 @@
   text-transform: uppercase;
 }
 
-.header__link {
+.header__tag {
   margin-block-end: 20px;
   font-family: var(--accent-font-family);
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
-  text-decoration: none;
 }
 
 .header__title {
@@ -159,9 +158,7 @@
   mix-blend-mode: hard-light;
 }
 
-@supports (
-  (text-stroke: 1px #000) or (-webkit-text-stroke: 1px #000)
-) {
+@supports ((text-stroke: 1px #000) or (-webkit-text-stroke: 1px #000)) {
   .card__text-element {
     text-shadow: none;
     -webkit-text-stroke: 1px var(--background-color);
