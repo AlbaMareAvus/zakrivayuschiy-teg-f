@@ -142,14 +142,15 @@
 
 .content__card-image-wrapper {
   position: relative;
-  border: 2px solid currentColor;
   justify-content: center;
+  border: 2px solid currentColor;
 }
 
 .content__card-image-label {
   position: absolute;
   top: 25px;
   right: 11px;
+  z-index: 1;
   opacity: 0.5;
   font-family: var(--accent-font-family);
   font-size: 14px;
