@@ -4,7 +4,9 @@
   font-size: 18px;
   background-color: var(--background-color);
   background-image: var(--background-image-gradient);
+  background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-variation-settings: 'wght' var(--main-font-weight, 400);
@@ -28,10 +30,11 @@
   text-transform: uppercase;
 }
 
-.header__tag {
+.header__tag-link {
   margin-block-end: 20px;
   font-family: var(--accent-font-family);
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  text-decoration: none;
 }
 
 .header__title {
@@ -121,6 +124,7 @@
   padding-inline: 10px;
   padding-block: 5px;
   font-size: 18px;
+  font-variation-settings: 'wght' var(--accent-font-weight, 700);
 }
 
 .content__card-image-wrapper {
